@@ -1,6 +1,6 @@
 import redis
 from datetime import timedelta
-from http-session.meta import Store, SessionData
+from http_session.meta import Store, SessionData
 from cromlech.marshallers import PickleMarshaller
 
 

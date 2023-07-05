@@ -44,3 +44,6 @@ class RedisStore(Store):
     def touch(self, sid: str):
         key = self.prefix + sid
         self.redis.expire(key, timedelta(seconds=self.delta))
+
+    def new(self):
+        return {}

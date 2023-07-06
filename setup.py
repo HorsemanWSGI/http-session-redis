@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import os
 from setuptools import setup, find_packages
 
@@ -33,7 +31,7 @@ setup(
     keywords='HTTP, Session, Redis',
     author='Souheil Chelfouh',
     author_email='trollfot@gmail.com',
-    url='https://github.com/HorsemanWSGI/http_session_redis',
+    url='https://github.com/HorsemanWSGI/http-session-redis',
     license_files=(
         'docs/LICENSE.txt',
     ),

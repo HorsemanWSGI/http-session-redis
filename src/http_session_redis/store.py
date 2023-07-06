@@ -1,7 +1,8 @@
 import redis
+import typing as t
 from datetime import timedelta
 from http_session.meta import Store, SessionData
-from cromlech.marshallers import PickleMarshaller
+from cromlech.marshallers import Marshaller, PickleMarshaller
 
 
 class RedisStore(Store):
@@ -11,8 +12,8 @@ class RedisStore(Store):
     def __init__(self,
                  redis: redis.Redis,
                  delta: int,
-                 prefix='session:',
-                 marshaller=PickleMarshaller):
+                 prefix: str = 'session:',
+                 marshaller: t.Type[Marshaller] = PickleMarshaller):
         self.delta = delta  # timedelta in seconds.
         self.redis = redis
         self.marshaller = marshaller
@@ -45,5 +46,5 @@ class RedisStore(Store):
         key = self.prefix + sid
         self.redis.expire(key, timedelta(seconds=self.delta))
 
-    def new(self):
+    def new(self) -> t.Dict:
         return {}
